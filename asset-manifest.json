@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ark_trade_tracker/static/css/main.2f185325.chunk.css",
+    "main.js": "/ark_trade_tracker/static/js/main.685993c2.chunk.js",
+    "main.js.map": "/ark_trade_tracker/static/js/main.685993c2.chunk.js.map",
+    "runtime-main.js": "/ark_trade_tracker/static/js/runtime-main.79e73b25.js",
+    "runtime-main.js.map": "/ark_trade_tracker/static/js/runtime-main.79e73b25.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/ark_trade_tracker/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.c2b7e6a6.chunk.js": "/ark_trade_tracker/static/js/2.c2b7e6a6.chunk.js",
+    "static/js/2.c2b7e6a6.chunk.js.map": "/ark_trade_tracker/static/js/2.c2b7e6a6.chunk.js.map",
+    "index.html": "/ark_trade_tracker/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/ark_trade_tracker/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/main.2f185325.chunk.css.map": "/ark_trade_tracker/static/css/main.2f185325.chunk.css.map",
+    "static/js/2.c2b7e6a6.chunk.js.LICENSE.txt": "/ark_trade_tracker/static/js/2.c2b7e6a6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.79e73b25.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.c2b7e6a6.chunk.js",
+    "static/css/main.2f185325.chunk.css",
+    "static/js/main.685993c2.chunk.js"
+  ]
+}
