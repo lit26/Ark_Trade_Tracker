@@ -1,0 +1,21 @@
+.btn{
+    /* height: 26px !important; */
+    background-color: rgb(19, 23, 34) !important;
+    color: rgb(209, 212, 220) !important;
+}
+.Menu__dropdown{
+    padding: 4px 3px;
+}
+.Menu__dropdownItems{
+    background-color: rgb(19, 23, 34) !important;
+    color: rgb(209, 212, 220) !important;
+}
+.Menu__dropdownItems > .dropdown-item{
+    color: rgb(209, 212, 220) !important;
+}
+.Menu__dropdownItems > .dropdown-item:hover{
+    color:black !important;
+}
+.Menu__dropdownButton{
+    padding: 0px 12px !important;
+}

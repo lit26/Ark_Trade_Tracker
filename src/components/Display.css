@@ -1,0 +1,14 @@
+.Display{
+    background-color:#222838;
+    min-height: 85vh;
+    display: flex;
+}
+.Display>div{
+    border: 2px solid rgb(19, 23, 34);
+}
+.Display__left{
+    flex: 0.75;
+}
+.Display__right{
+    flex:0.25;
+}

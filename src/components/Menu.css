@@ -1,0 +1,45 @@
+.Menu{
+    display:flex;
+    border-bottom: 2px solid rgb(19, 23, 34);
+    align-items: center;
+    height: 40px;
+
+}
+.Menu > div{
+    height:40px;
+    border: 2px solid rgb(19, 23, 34);
+}
+
+.Tickerinput{
+    height: 26px;
+    margin: 4px 5px;
+    color: rgb(209, 212, 220);
+    background-color: rgb(30, 34, 45);
+    border: 1px solid rgb(209, 212, 220);
+    border-radius: 4px;
+    padding: 1px 3px;
+}
+.Dateinput > div{
+    padding: 4px 3px;
+}
+.Dateinput input{
+    background-color: rgb(30, 34, 45);
+    color: rgb(209, 212, 220);
+    height: 26px;
+}
+.Menu__reset{
+    padding: 4px 3px;
+}
+.Menu__reset button{
+    height: 26px;
+    padding: 1px 3px;
+}
+
+.Menu__table .dropdown-toggle::after{
+    display:none !important;
+}
+.Menu__table button{
+    border: 0px;
+    padding: 0px !important;
+    background-color: #222838 !important;
+}

@@ -1,0 +1,23 @@
+.Portfolio{
+    padding: 5px 10px;
+}
+.Portfolio table{
+    width: 100%;
+}
+.Portfolio tr{
+    text-align:left
+}
+.Portfolio table{
+    border-collapse:collapse;
+}
+.Portfolio__setting h2{
+    margin:7px 0px;
+}
+.Portfolio__header{
+    border-bottom: 1px solid;
+    background-color: rgb(19, 23, 34);
+}
+.Portfolio tr:hover{
+    cursor: pointer;
+    background-color: rgb(19, 23, 34);
+}

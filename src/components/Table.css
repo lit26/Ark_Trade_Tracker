@@ -1,0 +1,10 @@
+.table-dark{
+    background-color: #1d2334 !important;
+}
+.Tradetable{
+    /* min-height: 70vh; */
+    margin: 15px;
+}
+.Tradetable__page{
+    text-align: center;
+}
