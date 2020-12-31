@@ -28,12 +28,12 @@ function Portfoliochart({data}) {
                 showlegend:false,
             }]}
             layout={{
-                width: 250,
+                width: 200,
                 height: 200,
                 autosize: true,
                 automargin: true,
                 margin: {
-                    l: 30, r: 30, b: 10, t: 10
+                    l: 10, r: 10, b: 10, t: 10
                 },
                 hovermode: 'closest',
                 plot_bgcolor: "#222838",

@@ -9,6 +9,7 @@ import {setTicker} from '../redux/action';
 function Portfolio() {
     const fund = useSelector(state => state.funds);
     const date = useSelector(state => state.date);
+    const [defaultDate, setDefaultDate] = useState([]);
     const [data, setData] = useState([]);
     const [market, setMarket] = useState([]);
     const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function Portfolio() {
             axios.get('https://raw.githubusercontent.com/lit26/Ark_Trade/main/scripts/info.json')
                 .then(res => {
                     getData(res.data['latest file']);
+                    setDefaultDate(res.data['latest file'].split('_')[2].split('.')[0]);
                 })
                 .catch(err => {
                     console.log(err)
@@ -41,6 +43,7 @@ function Portfolio() {
             let file_date = date.split('-');
             file_date = `${file_date[1]}-${file_date[2]}-${file_date[0]}`;
             getData(`Ark_holding_${file_date}.csv`);
+            setDefaultDate(file_date);
         }
         // eslint-disable-next-line
     },[date, fund])
@@ -79,7 +82,7 @@ function Portfolio() {
             <table>
                 <thead className="Portfolio__header">
                     <tr>
-                        <th>Symbol</th>
+                        <th>Symbol ({defaultDate})</th>
                         <th></th>
                     </tr>
                 </thead>

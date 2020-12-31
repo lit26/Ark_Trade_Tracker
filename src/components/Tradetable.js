@@ -1,7 +1,10 @@
 import React, { useMemo } from 'react'
-import { useTable, usePagination } from 'react-table'
+import { useTable, usePagination, useSortBy } from 'react-table'
 import { Table, Button } from 'react-bootstrap'
 import './Table.css'
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import SortIcon from '@material-ui/icons/Sort';
 
 function Tradetable({ trades, table_columns }) {
     const columns = useMemo(() => table_columns, [table_columns])
@@ -27,6 +30,7 @@ function Tradetable({ trades, table_columns }) {
             data,
             initialState: { pageIndex: 0 }
         },
+        useSortBy,
         usePagination
     )
 
@@ -34,51 +38,24 @@ function Tradetable({ trades, table_columns }) {
 
     return (
         <div className="Tradetable">
-            {/* <Table striped bordered hover variant="dark">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Date</th>
-                        <th>Fund</th>
-                        <th>Company</th>
-                        <th>Ticker</th>
-                        <th>Holding</th>
-                        <th>Market Value($)</th>
-                        <th>Weight(%)</th>
-                        <th>Aciton</th>
-                        <th>Shares</th>
-                        <th>% change</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        tradeData.map((data, index) => {
-                            return (
-                                <tr key={`trade_${index}`}>
-                                    <td>{index + 1}</td>
-                                    <td>{data['date']}</td>
-                                    <td>{data['fund']}</td>
-                                    <td>{data['company']}</td>
-                                    <td>{data['ticker']}</td>
-                                    <td>{data['holding']}</td>
-                                    <td>{data['market value($)']}</td>
-                                    <td>{data['weight(%)']}</td>
-                                    <td>{data['action']}</td>
-                                    <td>{data['shares']}</td>
-                                    <td>{data['% change']}</td>
-                                </tr>
-                            )
-                        })
-                    }
-                </tbody>
-            </Table> */}
             <Table striped bordered hover variant="dark" {...getTableProps()}>
-
                 <thead>
                     {headerGroups.map(headerGroup => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {headerGroup.headers.map(column => (
-                                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                                    <div className="Tradetable__header">
+                                        <div>{column.render('Header')}</div>
+                                        <div className="Tradetable__sort">
+                                            {column.isSorted
+                                                ? column.isSortedDesc
+                                                    ? <ArrowDropDownIcon />
+                                                    : <ArrowDropUpIcon />
+                                                : <SortIcon />}
+                                        </div>
+                                    </div>
+                                    
+                                </th>
                             ))}
                         </tr>
                     ))}

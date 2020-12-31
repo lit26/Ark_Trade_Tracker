@@ -2,9 +2,15 @@
     background-color: #1d2334 !important;
 }
 .Tradetable{
-    /* min-height: 70vh; */
     margin: 15px;
 }
 .Tradetable__page{
     text-align: center;
+}
+.Tradetable__sort{
+    width:24px;
+}
+.Tradetable__header{
+    display: flex;
+    align-items: center
 }
