@@ -14,8 +14,12 @@ function TickerInput() {
         e.preventDefault();
         let inputTicker = inputText;
         setInputText('')
-        return Promise.resolve(dispatch(setTicker(inputTicker))).then(
-            () => dispatch(setDate('')));
+        if(inputText !== ''){
+            return Promise.resolve(dispatch(setTicker(inputTicker))).then(
+                () => dispatch(setDate('')));
+        }else{
+            return dispatch(setTicker(inputTicker));
+        }
     }
     return (
         <form onSubmit={handleSubmit}>
