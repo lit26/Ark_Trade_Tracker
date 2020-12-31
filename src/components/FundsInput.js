@@ -24,6 +24,8 @@ function FundsInput() {
                 <Dropdown.Item eventKey="ARKW">ARKW</Dropdown.Item>
                 <Dropdown.Item eventKey="ARKG">ARKG</Dropdown.Item>
                 <Dropdown.Item eventKey="ARKF">ARKF</Dropdown.Item>
+                <Dropdown.Item eventKey="PRNT">PRNT</Dropdown.Item>
+                <Dropdown.Item eventKey="IZRL">IZRL</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     )

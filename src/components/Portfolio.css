@@ -21,3 +21,13 @@
     cursor: pointer;
     background-color: rgb(19, 23, 34);
 }
+@media screen and (max-width: 1200px) {
+    .Portfolio__info {
+        display:flex;
+        width:80%;
+        margin:auto
+    }
+    .Portfolio__chart{
+        margin-right:20px;
+    }
+}

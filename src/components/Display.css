@@ -7,15 +7,15 @@
     border: 2px solid rgb(19, 23, 34);
 }
 .Display__left{
-    flex: 0.6;
+    flex: 0.7;
 }
 .Display__right{
     /* background-color:#222838; */
     min-width: 250px;
-    flex:0.4;
+    flex:0.3;
 }
 @media screen and (max-width: 1200px) {
     .Display {
       flex-direction: column;
     }
-  }
+}
