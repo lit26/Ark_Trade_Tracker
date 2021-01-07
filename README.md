@@ -1,5 +1,5 @@
 # Ark Trade Tracker
 
-A platform for tracking ask investment.
+A platform for tracking tracking Ark Invest ETFs and give insights for stock investing. 
 
-Temporary deploy on: https://arktradetracker.web.app/
+Deployed through firebase: https://arktradetracker.web.app/
