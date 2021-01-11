@@ -58,7 +58,6 @@ function Portfoliochart({data}) {
                     orientation: "v",
                     bgcolor: "rgba(0,0,0,0)",
                 },
-                // title: `Top 15 ${choice} Cases Summary`,
             }}
         />
     )

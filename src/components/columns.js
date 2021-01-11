@@ -4,13 +4,6 @@ function printNumber(n){
 function printCurrency(n){
     return n.toLocaleString('en-US',{style: 'currency', currency: 'USD'})
 }
-function twoDecimal(n){
-    if(n !== undefined){
-        return n.toFixed(2);
-    }else{
-        return n
-    }
-}
 
 export const TRADE_COLUMNS = [
     {
@@ -110,11 +103,5 @@ export const HOLDING_COLUMNS = [
         Footer: 'Weight',
         accessor: 'weight(%)',
         Cell: props => <>{printNumber(props.value)}%</>
-    },
-    {
-        Header: 'Change',
-        Footer: 'Change',
-        accessor: '% change',
-        Cell: props => <>{twoDecimal(props.value)}%</>
-    },
+    }
 ]

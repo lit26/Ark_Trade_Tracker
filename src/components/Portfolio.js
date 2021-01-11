@@ -4,11 +4,16 @@ import axios from 'axios'
 import * as d3 from 'd3';
 import { useSelector, useDispatch } from 'react-redux'
 import Portfoliochart from './Portfoliochart'
+import Portfoliolinechart from './Portfoliolinechart'
 import { setTicker } from '../redux/action';
+import PieChartIcon from '@material-ui/icons/PieChart';
+import BarChartIcon from '@material-ui/icons/BarChart';
 
-function Portfolio() {
+function Portfolio({trades}) {
     const fund = useSelector(state => state.funds);
     const date = useSelector(state => state.date);
+    const ticker = useSelector(state => state.ticker);
+    const [chartType, setChartType] = useState('pie');
     const [defaultDate, setDefaultDate] = useState([]);
     const [data, setData] = useState([]);
     const [market, setMarket] = useState([]);
@@ -26,7 +31,7 @@ function Portfolio() {
             }
             setData(data);
         }).catch(err => {
-            console.log(err)
+            setData([]);
         });
     }
     useEffect(() => {
@@ -71,14 +76,36 @@ function Portfolio() {
         dispatch(setTicker(ticker.split('-')[0]))
     }
 
+    const chartTypeClickHandler = (chart) =>{
+        if(ticker !== ''){
+            setChartType(chart)
+        }
+    }
+    useEffect(() => {
+        if(ticker === ''){
+            setChartType('pie');
+        }else{
+            setChartType('line');
+        }
+    },[ticker])
+
     return (
         <div className="Portfolio">
-            <div className="Portfolio__setting">
-                <h4 style={{ fontWeight: 'bold' }}>Portfolio</h4>
+            <div className="Portfolio__top">
+                <div className="Portfolio__setting">
+                    <h4 style={{ fontWeight: 'bold' }}>Portfolio</h4>
+                    <p>Top holding%</p>
+                </div>
+                <div className="Portfolio__chartType">
+                    <PieChartIcon onClick={() => chartTypeClickHandler('pie')}/>
+                    <BarChartIcon onClick={() => chartTypeClickHandler('line')}/>
+                </div>
             </div>
+            
             <div className="Portfolio__info">
                 <div className="Portfolio__chart">
-                    <Portfoliochart data={market} />
+                    {chartType === 'pie' && <Portfoliochart data={market} />}
+                    {chartType === 'line' && <Portfoliolinechart data={trades}/>}
                 </div>
                 <table>
                     <thead className="Portfolio__header">

@@ -10,6 +10,16 @@
 .Portfolio table{
     border-collapse:collapse;
 }
+.Portfolio__top{
+    display: flex;
+    justify-content: space-between;
+}
+.Portfolio__top svg{
+    background-color: rgb(19, 23, 34);
+    border-radius: 5px;
+    padding: 2px;
+    cursor: pointer;
+}
 .Portfolio__setting h2{
     margin:7px 0px;
 }
@@ -21,7 +31,7 @@
     cursor: pointer;
     background-color: rgb(19, 23, 34);
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1240px) {
     .Portfolio__info {
         display:flex;
         width:80%;

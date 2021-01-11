@@ -16,59 +16,70 @@ function Display() {
     const [alltrades, setAllTrades] = useState([]);
     const [trades, setTrades] = useState([]);
     const [columns, setColumns] = useState([]);
+    const [tradeData, setTradeData] = useState([])
+    const [holdingData, setHoldingData] = useState([]);
 
     const getData = (file) => {
         d3.csv(`https://raw.githubusercontent.com/lit26/Ark_Trade/main/ark_trading/Ark_trade_${file}`).then(function (data) {
             data.forEach(function (d) {
                 d['No.'] = + d['No.'];
-                d['holding'] = + d['holding'].toLocaleString();
+                d['holding'] = + d['holding'];
                 d['market value($)'] = + d['market value($)'];
                 d['shares'] = + d['shares'];
                 d['weight(%)'] = + d['weight(%)'];
-                d['% change'] = + d['% change'];
             })
             setAllTrades(data);
         }).catch(err => {
-            console.log(err)
+            setAllTrades([]);
         });
     }
+
+    // fetch all data
+    useEffect(() => {
+        d3.csv(`https://raw.githubusercontent.com/lit26/Ark_Trade/main/trades.csv`).then(function (data) {
+            data.forEach(function (d) {
+                d['holding'] = + d['holding'];
+                d['market value($)'] = + d['market value($)'];
+                d['shares'] = + d['shares'];
+                d['weight(%)'] = + d['weight(%)'];
+            })
+            setTradeData(data);
+        });
+        d3.csv(`https://raw.githubusercontent.com/lit26/Ark_Trade/main/holdings.csv`).then(function (data) {
+            data.forEach(function (d) {
+                d['holding'] = + d['holding'];
+                d['market value($)'] = + d['market value($)'];
+                d['shares'] = + d['shares'];
+                d['weight(%)'] = + d['weight(%)'];
+            })
+            setHoldingData(data);
+        });
+    }, [])
+
     useEffect(() => {
         if (date === '') {
-            let file = 'trades.csv'
             if (tableView === 'holding') {
-                file = 'holdings.csv'
+                setAllTrades(holdingData);
+            }else{
+                setAllTrades(tradeData);
             }
-
-            d3.csv(`https://raw.githubusercontent.com/lit26/Ark_Trade/main/${file}`).then(function (data) {
-                data.forEach(function (d) {
-                    d['holding'] = + d['holding'].toLocaleString();
-                    d['market value($)'] = + d['market value($)'];
-                    d['shares'] = + d['shares'];
-                    d['weight(%)'] = + d['weight(%)'];
-                    if(tableView === 'holding'){
-                        d['% change'] =+ d['% change'];
-                    }
-                })
-                setAllTrades(data);
-            });
 
         } else {
             let file_date = date.split('-')
             let file = `${file_date[1]}-${file_date[2]}-${file_date[0]}.csv`
             getData(file)
         }
-
-    }, [date, dispatch, tableView])
+    }, [date, dispatch, tableView, tradeData, holdingData])
 
     useEffect(() => {
         let data = alltrades;
         if (tableView === 'trade') {
-            if (date !== ''){
+            if (date !== '') {
                 data = data.filter(trade => trade.action !== 'Hold');
             }
             setColumns(TRADE_COLUMNS);
         } else {
-            if (date !== ''){
+            if (date !== '') {
                 data = data.filter(trade => trade.action === 'Hold');
             }
             setColumns(HOLDING_COLUMNS);
@@ -86,10 +97,10 @@ function Display() {
         <div className="Display">
             <div className="Display__left">
                 <Menu />
-                <Tradetable trades={trades} table_columns={columns} />
+                <Tradetable trades={trades} table_columns={columns} tradeData={tradeData} holdingData={holdingData}/>
             </div>
             <div className="Display__right">
-                <Portfolio />
+                <Portfolio trades={trades} />
             </div>
         </div>
     )
